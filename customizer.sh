@@ -39,7 +39,7 @@ find ./ -type f -name "Application.kt" -exec sed -i.bak "s/$ORG_PACKAGE/$PACKAGE
 
 # Rename packages in navigation graphs.
 echo "Renaming packages in navigation graphs to $PACKAGE..."
-find ./**/navigation -type f -name "*.xml" -exec sed -i.bak "s/$ORG_PACKAGE/$PACKAGE/g" {} \;
+find ./ -type f -path '*/res/navigation/*' -name "*.xml" -exec sed -i.bak "s/$ORG_PACKAGE/$PACKAGE/g" {} \;
 
 # Rename packages in manifest files.
 echo "Renaming packages in manifest files to $PACKAGE..."
